@@ -27,7 +27,7 @@ Integrating hybrid automata into real-time systems presents significant challeng
 
 This architecture ensures safe, adaptive navigation with real-time vessel sensor integration.
 
-![colav_architecture](./images/colav%20architecture.png)
+![colav_architecture](./images/colav_architecture.png)
 
 ## Testing
 
