@@ -12,22 +12,22 @@ The Hybrid Automaton is the core of our COLAV system, responsible for real-time 
 - T2Theta Mode: Triggers if the trajectory is predicted to intersect the unsafe set within a threshold distance. It generates a new virtual waypoint, transitions to T2LOS for course correction, and then returns to Cruise Mode, repeating until the final waypoint is reached.
 Waypoint Mode: Indicates successful arrival within the acceptance radius closing the hybrid automaton.
 
-[!image](./images/hybrid_automaton.png)
+![colav_hybrid_automaton](./images/hybrid_automaton.png)
 
 ## Architecture
 
 Hybrid automata integration in real-time systems is challenging. Our ROS-based COLAV server enables concurrent execution of key modules:
 
-- [colav_gateway](): Manages mission requests, updates, and feedback via Prototoc Buffers enabling seamless conversion between ROS interfaces published through network communciation
-- [colav_risk_assessment](): Computers real time unsafe sets, predicts trajectories and assesses collision risk for adaptive collision avoidance.
+- [colav_gateway](https://github.com/Artemis-QUB-COLAV/colav-gateway): Manages mission requests, updates, and feedback via Prototoc Buffers enabling seamless conversion between ROS interfaces published through network communciation
+- [colav_risk_assessment](https://github.com/Artemis-QUB-COLAV/colav-risk-assessment): Computers real time unsafe sets, predicts trajectories and assesses collision risk for adaptive collision avoidance.
 - [colav_mapping](): Processes OSM and sensor data to create static/dynamic map layers. It combines rasterized vector maps with unsafe set overlays, applyinjg bloating for cost map generation.
 - [colav_hybrid_automaton](): Implements state-switching logic with Simulink Stateflow and ROS, generating yaw-rate/velocity commands while managing system transitions in real time.
 
 This architecture ensures safe, adaptive navigation with real-time vessel sensor integration.
-[!image](./images/colav%20archicture.png)
+![colav_architecture](./images/colav%20archicture.png)
 
 ## Testing
 
-Our COLAV system is designed to be easily integrable via Protobuf I/O, enabling seamless testing. We developed a geometric simulator that runs real-world marine scenarios, including dynamic obstacles with state, trajectory, and geometry data, as well as static obstacles like landmasses and harbours. Using commonocean-io, we stream real-time mock sensor fusion data and retrieve velocity and yaw rate commands from the hybrid automaton. The drivability checker ensures feasible trajectories, while commonocean-rules enforces COLREG compliance. This allows systematic validation of the system’s decision-making and trajectory generation. Looking ahead, we plan to test in 3D game engine simulations with hydrofoils for Artemis and ultimately deploy the system on a real vessel.
+Our COLAV system is designed to be easily integrable via Protobuf I/O, enabling seamless testing. We developed a geometric simulator that runs real-world marine scenarios, including dynamic obstacles with state, trajectory, and geometry data, as well as static obstacles like landmasses and harbours. Using commonocean-io, we stream real-time mock sensor fusion data and retrieve velocity and yaw rate commands from the hybrid automaton. The drivability checker ensures feasible trajectories, while commonocean-rules enforces COLREG compliance. This allows systematic validation of the system’s decision-making and trajectory generation. Looking ahead, we plan to test in 3D game engine simulations with hydrofoils for Artemis and ultimately deploy the system on a real vessel. Current implementation of the testing simulation is container in [colav_commonocean_testing](https://github.com/Artemis-QUB-COLAV/colav-commonocean-testing).
 
-[!image](./images/colav_sim_vessel_integration.png)
+![colav_sim_vessel_integration](./images/colav_sim_vessel_integration.png)
