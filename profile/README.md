@@ -1,12 +1,6 @@
-## Hi there 👋
+# (Artemis-QUB) COLAV
 
-<!--
+Our research develops an autonomous marine navigation system that ensures safe, efficient operation in dynamic environments while maintaining real-time compliance with COLREGs. Our motion planner prioritizes provable safety, balancing simplicity with competitiveness. Unlike modern deep-learning "black box" methods, it remains interpretable yet more advanced than basic state machines methods, enabling effective handling of complex scenarios.
+We are designing COLAV as a plug-and-play module for any vessel with proper integration. In collaboration with Artemis, experts in sustainable hydrofoil technology, we leverage hydro foiling's simpler dynamics to refine and validate our system in both simulations and real-world tests.
 
-**Here are some ideas to get you started:**
-
-🙋‍♀️ A short introduction - what is your organization all about?
-🌈 Contribution guidelines - how can the community get involved?
-👩‍💻 Useful resources - where can the community find your docs? Is there anything else the community should know?
-🍿 Fun facts - what does your team eat for breakfast?
-🧙 Remember, you can do mighty things with the power of [Markdown](https://docs.github.com/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
--->
+![image](https://github.com/user-attachments/assets/48bc4c40-773f-4a70-8d4f-88f9a0606388)
